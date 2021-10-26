@@ -17,6 +17,12 @@ let esbuild_opts = {
     ".ttf": "file",
     ".bib": "text",
   },
+  // watch: {
+  //   onRebuild(error, result) {
+  //     if (error) console.error("watch build failed:", error);
+  //     else console.log("watch build succeeded:", result);
+  //   },
+  // },
   ...options,
 };
 

@@ -18,9 +18,19 @@ esbuild
       ".woff2": "file",
       ".ttf": "file",
     },
+    watch: {
+      onRebuild(error, result) {
+        if (error) console.error("watch build failed:", error);
+        else console.log("watch build succeeded:", result);
+      },
+    },
     sourcemap: true,
     outdir: "dist",
     ...options,
   })
-  .then(() => console.log("Build complete."))
+  // .then(() => console.log("Build complete."))
+  .then(result => {
+    // Call "stop" on the result to stop watching
+    result.stop();
+  })
   .catch(() => process.exit(1));
